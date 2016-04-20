@@ -10,9 +10,11 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/3d-falling-leaves.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica' rel='stylesheet' type='text/css'>
-    <!-- <link rel="stylesheet" href="css/reset.css"> --> <!-- CSS reset -->
-    <!-- <link rel="stylesheet" href="css/nav.css"> <!Resource style --> 
-    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
+    <!-- CSS reset -->
+    <!-- <link rel="stylesheet" href="css/nav.css"> <!Resource style -->
+    <script src="js/modernizr.js"></script>
+    <!-- Modernizr -->
     <meta property="fb:app_id" content="" />
     <meta property="og:type" content="" />
     <meta property="og:locale" content="en_US">
@@ -30,14 +32,7 @@
     <meta name="twitter:image" content="">
     <meta name="twitter:image:width" content="" />
     <meta name="twitter:image:height" content="" />
-
-
-
-
-
-
     <style>
-    
     /******************************************************************************* falling leaves effect ****************************************************************************************************/
     </style>
     <!--[if lt IE 9]>
@@ -45,16 +40,10 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <script>
-     width = $(window).width();
-     height = $(window).height();
 </script>
 
-
-
 <body style="height:10000px;">
-
     <nav id="cd-vertical-nav">
         <ul>
             <li>
@@ -101,16 +90,15 @@
             </li>
         </ul>
     </nav>
-
-    <div class="container-fluid content header" >
-        <div class="row" data-0="opacity:1; margin-top:0px" data--100-bottom=" margin-top:100px" data-center-bottom="opacity:0">
+    <div class="container-fluid content header">
+        <!--         <div class="row" data-0="opacity:1; transform:translate3d(0px,0px,0px);" data--1000-bottom="transform:translate3d(0px,1000px,0px); opacity:0;"> -->
+        <div class="row" data-0="opacity:1" data--200-bottom="opacity:0;">
             <div class="main-sketch col-sm-7">
-                <!-- <img class="img-responsive" img-responsive src="assets/images/crying_boy.png"> -->
                 <img class="img-responsive" img-responsive src="assets/images/landing_page.png">
             </div>
-           <!--  <div class="scroll col-sm-1">
-                <h5>Scroll</h5>
-            </div> -->
+            <!--  <div class="scroll col-sm-1">
+                    <h5>Scroll</h5>
+                </div> -->
             <div class="col-sm-5">
                 <div class="main-title">
                     <h2>On the Struggle</h2>
@@ -120,30 +108,35 @@
             </div>
         </div>
 
-        <div class="row intro1">
-            <div class="col-sm-3 spacer">
-            </div>
-            <div class="col-sm-6" data-0="opacity:0" data-center-top="opacity:0" data-center="opacity:1" data-5p-top="opacity:0">
-            <!-- <div class="col-sm-6" data-0="opacity:0" data-bottom="opacity:0" data--20p-bottom="opacity:1" data-top="opacity:0"> -->
-                <h3 class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et lectus at lectus fringilla tristique at quis ex. Donec posuere eros urna, quis maximus lorem scelerisque sit amet. Duis quis pellentesque nisl, eget consequat leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia convallis enim. Vestibulum fermentum eros vitae quam pellentesque aliquet.</h3>
-            </div>
-            <div class="col-sm-3 spacer">
+        <section id="scroll_button" class="scroll">
+            <a href="#intro"><span></span>Scroll</a>
+        </section>
+
+
+        <div class="row intro1" id="intro">
+            <div class="col-sm-12" data-0="opacity:0" data-bottom="opacity:0" data-center="opacity:1" data-top="opacity:0">
+                <h3 class="intro"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et lectus at lectus fringilla tristique at quis ex. Donec posuere eros urna, quis maximus lorem scelerisque sit amet. Duis quis pellentesque nisl, eget consequat leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia convallis enim. Vestibulum fermentum eros vitae quam pellentesque aliquet.</h3>
             </div>
         </div>
-
         <div class="row intro2">
-            <div class="col-sm-3 spacer">
-            </div>
-            <div class="col-sm-6" data-0="opacity:0" data-center-top="opacity:0" data-center="opacity:1" data-5p-top="opacity:0">
-            <!-- <div class="col-sm-6" data-0="opacity:0" data-bottom="opacity:0" data--20p-bottom="opacity:1" data-top="opacity:0"> -->
-                <h3 class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et lectus at lectus fringilla tristique at quis ex. Donec posuere eros urna, quis maximus lorem scelerisque sit amet. Duis quis pellentesque nisl, eget consequat leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia convallis enim. Vestibulum fermentum eros vitae quam pellentesque aliquet.</h3>
-            </div>
-            <div class="col-sm-3 spacer">
+            <div class="col-sm-12" data-0="opacity:0" data-bottom="opacity:0" data-center="opacity:1" data-top="opacity:0">
+                <h3 class="intro">ipsum dolor sit amet, consectetur adipiscing elit. Morbi et lectus at lectus fringilla tristique at quis ex. Donec posuere eros urna, quis maximus lorem scelerisque sit amet. Duis quis pellentesque nisl, eget consequat leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia convallis enim. Vestibulum fermentum eros vitae quam pellentesque aliquet.</h3>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-sm-12">
+                <!--  <data-0="opacity:0" data-center-top="opacity:0" data-center="opacity:1" data-5p-top="opacity:0"> -->
+                <img class="img-responsive graphic graphic1" img-responsive src="assets/images/graphic1.png" data-0="opacity:0" data-bottom="opacity:0" data-center="opacity:1" data-top="opacity:0">
+                <img class="img-responsive graphic graphic2" img-responsive src="assets/images/graphic2.png">
+                <img class="img-responsive graphic graphic3" img-responsive src="assets/images/graphic1.png" data-0="opacity:0" data-bottom="opacity:0" data-center="opacity:1" data-top="opacity:0">
+            </div>
+        </div>
+        <!--  <div class="row">
+                <div class="col-sm-12 graphic">
+                    <img class="img-responsive" img-responsive src="assets/images/graphic2.png">
+                </div>
+            </div> -->
     </div>
-   
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/d3.v3.min.js"></script>
@@ -155,22 +148,16 @@
     <script type="text/javascript">
     var s = skrollr.init();
     skrollr.init({
-    easing: {
-        //This easing will sure drive you crazy
-        wtf: Math.random,
-        inverted: function(p) {
-            return 1 - p;
+        easing: {
+            //This easing will sure drive you crazy
+            wtf: Math.random,
+            inverted: function(p) {
+                return 1 - p;
+            }
         }
-    }
-});
+    });
     </script>
     <script>
-    function responsive() {
-        width = $(window).width();
-        height = $(window).height();
-    }
-
-    $(window).ready(responsive).resize(responsive);
     $(document).octoberLeaves();
     </script>
 </body>
