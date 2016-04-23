@@ -328,3 +328,44 @@ section::after {
         opacity: 0;
     }
 }
+
+/* filmstrip css*/
+#filmstrip{
+      position: absolute;
+      left:0;
+      width: 2400px; /* do math based on how many videos you have */
+        }
+
+    #filmstrip::before, #filmstrip::after{
+        content: " ";
+        display: table;
+    }
+
+    #filmstrip::after {
+        clear: both;
+    }
+
+    #filmstrip iframe{
+      float: left;
+      height: 180px;
+      width: 320px;
+    }
+
+    .street_interview{
+        transition: all .2s ease-in-out;
+    }
+    .street_interview:hover { 
+        transform: scale(1.2);
+    }
+
+    #subtitles{
+      position: relative;
+      top: 300px;
+        font-size: 30px;
+      text-align: center;
+    }
+
+    .highlight{
+      background-color: yellow;
+    }
+    
