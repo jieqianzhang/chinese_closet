@@ -9,48 +9,49 @@
 // This function will be executed when the user scrolls the page.
 $(window).scroll(function(e) {
     // Get the position of the location where the scroller starts.
-      
-  scrollControlGraphics(this);
-  scrollControlFilmStrip(this);
+  var graphicsStartOffset = $(".scroller_anchor_graphics").offset().top;  
+  var filmstripStartOffset = $(".scroller_anchor_filmstrip").offset().top;
 
+  scrollControlComponent('.scroller_graphics', graphicsStartOffset, filmstripStartOffset);
+  scrollControlComponent('.scroller_filmstrip_container', filmstripStartOffset, Number.MAX_SAFE_INTEGER);
 });
 
-function scrollControlGraphics(currentWindow) {
-  var scroller_anchor_graphics = $(".scroller_anchor_graphics").offset().top;
-     
+function scrollControlComponent(component, startOffset, endOffset) {
+  // console.log('scrollTop: ' + $(this).scrollTop());
+  // console.log('component: ' + component);
+  // console.log('startOffset: ' + startOffset);
+  // console.log('endOffset: ' + endOffset);
+
     // Check if the user has scrolled and the current position is after the scroller start location and if its not already fixed at the top 
-    if ($(currentWindow).scrollTop() >= scroller_anchor_graphics && $('.scroller_graphics').css('position') != 'fixed') 
-    {    // Change the CSS of the scroller to hilight it and fix it at the top of the screen.
-        $('.scroller_graphics').css({
-            // 'background': '#CCC',
-            // 'border': '1px solid #000',
-            'position': 'fixed',
-            'width':'100%',
-            'z-index':99,
-            'top': '0px'
-        });
-
-        // Changing the height of the scroller anchor to that of scroller so that there is no change in the overall height of the page.
-        $('.scroller_anchor_graphics').css('height', '50px');
-    } 
-    else if ($(currentWindow).scrollTop() < scroller_anchor && $('.scroller').css('position') != 'relative') 
-    {    // If the user has scrolled back to the location above the scroller anchor place it back into the content.
-         
-        // Change the height of the scroller anchor to 0 and now we will be adding the scroller back to the content.
-        $('.scroller_anchor_graphics').css('height', '0px');
-
-        // Change the CSS and put it back to its original position.
-        $('.scroller_graphics').css({
-            'position': 'relative'
-        });
-    }
-
-}
-function scrollControlFilmStrip(currentWindow) {
-
+    if ($(this).scrollTop() >= startOffset 
+        && $(this).scrollTop() <= endOffset
+        && $(component).css('position') != 'fixed') { 
+      // Change the CSS of the scroller to hilight it and fix it at the top of the screen.
+      $(component).css({
+          // 'background': '#CCC',
+          // 'border': '1px solid #000',
+          'position': 'fixed',
+          'width':'100%',
+          'z-index':99,
+          'top': '0px',
+          'visibility': 'visible'
+      });
+    } else if (($(this).scrollTop() < startOffset
+                || $(this).scrollTop() > endOffset)
+               && $(component).css('position') != 'relative') {
+       
+      // Change the CSS and put it back to its original position.
+      $(component).css({
+          'position': 'relative',
+          'visibility': 'hidden'
+      });
+    }  
 }
 
 $(document).ready(function(){
+  // First should not be visible.
+  $('#filmstrip').css('visibility', 'hidden');
+
   var subtitles_for_video_1 = [
     {time:0, caption:"In physics, “like charges repel each other while opposite charges attract,” right?"},
     {time:5.05, caption:" So why would anyone want to engage in homosexual activity?"},

@@ -54,7 +54,8 @@ body {
 .graphics,
 .intro1,
 .intro2,
-.row {
+.row,
+.filmstrip {
     height: 100vh;
     position: relative;
 }
@@ -94,6 +95,18 @@ body {
         -ms-transform: translate(-50%, -50%);
         -o-transform: translate(-50%, -50%);
     }
+
+    .filmstrip{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+
+    }
 }
 
 @media(max-width: 767px) {
@@ -111,6 +124,17 @@ body {
         top: 50%;
         left: 50%;
         width: 80%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
+
+    .filmstrip {
+        position: absolute;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
         -moz-transform: translate(-50%, -50%);
@@ -329,12 +353,24 @@ section::after {
     }
 }
 
+.anchor {
+    position: absolute;
+    visibility: hidden;
+}
+
+.scroller_anchor_graphics {
+    top: 1773px;
+}
+.scroller_anchor_filmstrip {
+    top: 8000px;
+}
+
 /* filmstrip css*/
 #filmstrip{
       position: absolute;
       left:0;
       width: 2400px; /* do math based on how many videos you have */
-        }
+}
 
     #filmstrip::before, #filmstrip::after{
         content: " ";
