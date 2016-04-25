@@ -8,20 +8,18 @@
 // });
 // This function will be executed when the user scrolls the page.
 $(window).scroll(function(e) {
-    // Get the position of the location where the scroller starts.
-  var graphicsStartOffset = $(".scroller_anchor_graphics").offset().top;  
-  var filmstripStartOffset = $(".scroller_anchor_filmstrip").offset().top;
+  // Get the position of the location where the scroller starts.
+  // Offset is initiated in $(document).ready().
+  var graphicsStartOffset = $(".scroller_anchor_graphics").data('startOffset');
+  var graphicsEndOffset = $(".scroller_anchor_graphics").data('endOffset');
+  var filmstripStartOffset = $(".scroller_anchor_filmstrip").data('startOffset');
+  var filmstripEndOffset = $(".scroller_anchor_filmstrip").data('endOffset');
 
-  scrollControlComponent('.scroller_graphics', graphicsStartOffset, filmstripStartOffset);
-  scrollControlComponent('.scroller_filmstrip_container', filmstripStartOffset, Number.MAX_SAFE_INTEGER);
+  scrollControlComponent('.scroller_graphics', graphicsStartOffset, graphicsEndOffset);
+  scrollControlComponent('.scroller_filmstrip_container', filmstripStartOffset, filmstripEndOffset);
 });
 
 function scrollControlComponent(component, startOffset, endOffset) {
-  // console.log('scrollTop: ' + $(this).scrollTop());
-  // console.log('component: ' + component);
-  // console.log('startOffset: ' + startOffset);
-  // console.log('endOffset: ' + endOffset);
-
     // Check if the user has scrolled and the current position is after the scroller start location and if its not already fixed at the top 
     if ($(this).scrollTop() >= startOffset 
         && $(this).scrollTop() <= endOffset
@@ -49,8 +47,13 @@ function scrollControlComponent(component, startOffset, endOffset) {
 }
 
 $(document).ready(function(){
-  // First should not be visible.
-  $('#filmstrip').css('visibility', 'hidden');
+  // Init the offset to a fixed value.
+  var bodyHeight = $('body').height();
+  $('.scroller_anchor_graphics').data('startOffset', bodyHeight * 0.2);
+  $('.scroller_anchor_graphics').data('endOffset', bodyHeight * 0.5);
+
+  $('.scroller_anchor_filmstrip').data('startOffset', bodyHeight * 0.6);
+  $('.scroller_anchor_filmstrip').data('endOffset', bodyHeight * 0.8);
 
   var subtitles_for_video_1 = [
     {time:0, caption:"In physics, “like charges repel each other while opposite charges attract,” right?"},
