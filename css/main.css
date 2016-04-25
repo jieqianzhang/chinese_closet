@@ -353,55 +353,42 @@ section::after {
     }
 }
 
-.anchor {
-    position: absolute;
-    visibility: hidden;
-}
-
-.scroller_anchor_graphics {
-    top: 1773px;
-}
-.scroller_anchor_filmstrip {
-    top: 8000px;
-}
-
 /* filmstrip css*/
 #filmstrip{
-      position: absolute;
-      left:0;
-      width: 2400px; /* do math based on how many videos you have */
+    padding-left: 5%;
+    position: absolute;
+    top: 10%;
+    left:0;
+    /*width: 2400px;  do math based on how many videos you have */
 }
 
-    #filmstrip::before, #filmstrip::after{
-        content: " ";
-        display: table;
-    }
+#filmstrip .streetinterview_video {
+    position: absolute;
+    top: 10%;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: top;
+}
 
-    #filmstrip::after {
-        clear: both;
-    }
+#filmstrip .streetinterview {  
+    height: 180px;
+    width: 320px;
+    transition: all .2s ease-in-out;
+}
 
-    #filmstrip iframe{
-      float: left;
-      height: 180px;
-      width: 320px;
-    }
+#filmstrip .street_interview:hover { 
+    transform: scale(1.2);
+}
 
-    .street_interview{
-        transition: all .2s ease-in-out;
-    }
-    .street_interview:hover { 
-        transform: scale(1.2);
-    }
+#subtitles{
+    position: absolute;
+    bottom: 25%;
+    left: 10%;
+    font-size: 30px;
+    text-align: center;
+}
 
-    #subtitles{
-      position: relative;
-      top: 300px;
-        font-size: 30px;
-      text-align: center;
-    }
-
-    .highlight{
-      background-color: yellow;
-    }
+.highlight{
+    background-color: yellow;
+}
     
