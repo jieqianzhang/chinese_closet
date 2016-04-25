@@ -4,7 +4,7 @@
 	 viewBox="0 0 1200 800" style="enable-background:new 0 0 1200 800;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#F9F9F9;}
-	.st1{fill:#C10606;}
+	.st1{fill:#A31D02;}
 	.st2{fill:none;stroke:#545454;stroke-miterlimit:10;}
 	.st3{font-family:'FranklinGothic-Book';}
 	.st4{font-size:25px;}
@@ -2270,5 +2270,6 @@
 <circle class="st0" cx="392.9" cy="139.4" r="4.5"/>
 <circle class="st0" cx="420" cy="193.6" r="4.5"/>
 <path class="st2" d="M747.5,261.5c0,0,8.8-33.3,54.1-36.7"/>
-<text transform="matrix(1 0 0 1 821 219)"><tspan x="0" y="0" class="st3 st4">In China, 1 out of 2,660 people </tspan><tspan x="0" y="30" class="st3 st4">lives with HIV </tspan></text>
+<text transform="matrix(1 0 0 1 821 219)" class="st3 st4">In China, 1 out of 2,660 people </text>
+<text transform="matrix(1 0 0 1 821 249)" class="st3 st4">lives with HIV </text>
 </svg>

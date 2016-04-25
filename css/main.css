@@ -7,7 +7,6 @@ body {
     background-image: url("../assets/images/texture_altered.jpg");
     background-size: 100%;
     overflow-x: hidden;
-    height: 10000px;
     font-family: 'IM Fell DW Pica', serif;
 }
 
@@ -55,15 +54,19 @@ body {
 .intro1,
 .intro2,
 .row {
-    height: 100vh;
+  /*  height: 100vh;*/
     position: relative;
 }
 
+.intro1{
+    height: 50vh;
+}
 
-/*.graphic{
-      transform: translateY(50%);
+
+.intro2, .graphics{
+     height:100vh;
     }
-*/
+
 
 @media(min-width: 768px) {
     .main-title {
@@ -269,8 +272,8 @@ section::after {
     left: 50%;
     font-size: 16px;
     z-index: 2;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     color: #fff;
     letter-spacing: .1em;
     text-decoration: none;

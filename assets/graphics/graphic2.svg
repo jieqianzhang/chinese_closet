@@ -4,36 +4,25 @@
 	 viewBox="0 0 1200 800" style="enable-background:new 0 0 1200 800;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#F9F9F9;}
-	.st1{fill:#D30909;}
+	.st1{fill:#A31D02;}
 	.st2{fill:none;stroke:#333333;stroke-miterlimit:10;}
 	.st3{font-family:'FranklinGothic-Book';}
 	.st4{font-size:26px;}
 </style>
-<circle class="st0" cx="410.5" cy="428.6" r="13.4"/>
-<circle class="st0" cx="486.1" cy="418.3" r="13.4"/>
-<circle class="st0" cx="382.3" cy="423" r="13.4"/>
-<circle class="st0" cx="439.4" cy="358" r="13.4"/>
-<circle class="st1" cx="476.8" cy="391" r="13.4"/>
-<circle class="st0" cx="363.3" cy="444.6" r="13.4"/>
-<circle class="st0" cx="392.1" cy="374" r="13.4"/>
-<circle class="st0" cx="476.2" cy="467.3" r="13.4"/>
-<circle class="st0" cx="429" cy="483.3" r="13.4"/>
-<circle class="st0" cx="495.3" cy="445.6" r="13.4"/>
-<circle class="st0" cx="400.7" cy="477.6" r="13.4"/>
-<circle class="st0" cx="438.8" cy="434.3" r="13.4"/>
-<circle class="st0" cx="467" cy="439.9" r="13.4"/>
-<circle class="st0" cx="457.8" cy="412.6" r="13.4"/>
-<circle class="st0" cx="429.6" cy="407" r="13.4"/>
-<circle class="st0" cx="420.3" cy="379.7" r="13.4"/>
-<circle class="st0" cx="448.6" cy="385.3" r="13.4"/>
-<circle class="st0" cx="372.5" cy="471.9" r="13.4"/>
-<circle class="st0" cx="411.1" cy="352.4" r="13.4"/>
-<circle class="st0" cx="401.3" cy="401.3" r="13.4"/>
-<circle class="st0" cx="373.1" cy="395.7" r="13.4"/>
-<circle class="st0" cx="391.5" cy="450.3" r="13.4"/>
-<circle class="st0" cx="448" cy="461.6" r="13.4"/>
-<circle class="st0" cx="419.7" cy="455.9" r="13.4"/>
-<circle class="st0" cx="354" cy="417.3" r="13.4"/>
-<path class="st2" d="M491.7,378.1c0,0,1.4-69.2,101.7-74.8"/>
-<text transform="matrix(1 0 0 1 607.7665 303.331)"><tspan x="0" y="0" class="st3 st4">Meanwhile, every 1 out of 25 gay men</tspan><tspan x="0" y="31.2" class="st3 st4">in China is living with HIV.</tspan></text>
+<circle class="st0" cx="447.5" cy="407.6" r="13.4"/>
+<circle class="st0" cx="523.1" cy="397.3" r="13.4"/>
+<circle class="st1" cx="513.8" cy="370" r="13.4"/>
+<circle class="st0" cx="513.2" cy="446.3" r="13.4"/>
+<circle class="st0" cx="532.3" cy="424.6" r="13.4"/>
+<circle class="st0" cx="475.8" cy="413.3" r="13.4"/>
+<circle class="st0" cx="504" cy="418.9" r="13.4"/>
+<circle class="st0" cx="494.8" cy="391.6" r="13.4"/>
+<circle class="st0" cx="466.6" cy="386" r="13.4"/>
+<circle class="st0" cx="485.6" cy="364.3" r="13.4"/>
+<circle class="st0" cx="485" cy="440.6" r="13.4"/>
+<circle class="st0" cx="456.7" cy="434.9" r="13.4"/>
+<path class="st2" d="M528.7,357.1c0,0,1.4-69.2,101.7-74.8"/>
+<text transform="matrix(1 0 0 1 644.7665 282.331)" class="st3 st4">Meanwhile, every 1 out of 12.5 gay men</text>
+<text transform="matrix(1 0 0 1 644.7665 313.531)" class="st3 st4">in China is living with HIV.</text>
+<path class="st0" d="M465.6,453.3c-1.8,7.2,2.6,14.4,9.8,16.2c7.2,1.8,14.4-2.6,16.2-9.8L465.6,453.3z"/>
 </svg>
