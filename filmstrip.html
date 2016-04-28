@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+  #question_title{
+    position:relative;
+    text-align: center;
+    color:#8F5332;
+    font-size: 46px;
+
+  }
+
+	#filmstrip{
+    margin-top: 50px;
+	  position: absolute;
+	  left:0;
+	  width: 2400px; /* do math based on how many videos you have */
+		}
+
+	#filmstrip::before, #filmstrip::after{
+	    content: " ";
+	    display: table;
+	}
+
+	#filmstrip::after {
+	    clear: both;
+	}
+
+	#filmstrip iframe{
+	  float: left;
+	  height: 180px;
+	  width: 320px;
+	}
+
+	.street_interview{
+	 	transition: all .2s ease-in-out;
+	}
+    .street_interview:hover { 
+    	transform: scale(1.2);
+    }
+
+    #subtitles{
+      position: relative;
+      top: 300px;
+    	font-size: 30px;
+      text-align: center;
+    }
+
+    .highlight{
+      font-size: 30px;
+      color:#8F5332;
+    }
+
+    ul#keyword {
+    padding: 0;
+}
+
+    ul#keyword li {
+        display: inline;
+        padding: 40px 60px;
+    }
+
+    .enlarged{
+      width:340px !important;
+      height:200px !important;
+    }
+
+
+</style>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.vimeo.api.js"></script>
+<script>
+
+
+ var subtitles_for_video = [[
+    {time:0, caption:"In physics, “like charges repel each other while opposite charges attract,” right?"},
+    {time:5.05, caption:" So why would anyone want to engage in homosexual activity?"},
+    {time:6.19, caption:"Are they out of their minds? Are they <span class=\"highlight\">psycho</span>? "},
+    {time:9.12, caption:" Isn’t homosexuality <span class=\"highlight\">inherited?</span> "},
+    {time:12.27, caption:" It’s not an acquired characteristic but an innate trait."},
+    {time:15.09, caption:" I think this is just a <span class=\"highlight\">normal</span> sexual orientation."},
+    {time:18.24, caption:" I don’t have any issue with homosexuality. "},
+    {time:20.06, caption:" It’s just like, ‘I like drinking beer’ and he likes drinking some other beverage."},
+    {time:23.06, caption:" It’s just like that, very simple."},
+    {time:25.04, caption:" I think it’s okay."},
+    {time:26.09, caption:" If they are <span class=\"highlight\">good-looking</span>, they will be pleasing to me. "},
+    {time:29.01, caption:" But if they don’t, they <span class=\"highlight\">nauseate me.</span> "},
+    {time:33.24, caption:" From the perspective of human relationships,"},
+    {time:38.02, caption:" It’s okay if they live together. "},
+    {time:42.16, caption:" But from the perspective of human reproduction,"},
+    {time:46.08, caption:" it’s not gonna work. "},
+    {time:47.07, caption:" It’s absolutely bad!"},
+    {time:48.25, caption:" Homosexuality won’t do any good for society. "},
+    {time:50.07, caption:" Two men living together? "},
+    {time:51.21, caption:" Who does the <span class=\"highlight\">housework?</span> "},
+    {time:53.07, caption:" Men certainly can’t do housework."},
+    {time:54.19, caption:" Women should do the housework. "},
+    {time:56.08, caption:" Then why would two men bother to get married? "},
+    {time:57.48, caption:" The purpose for getting married is to make a family."},
+    {time:59.27, caption:" Families with one man are already terrible. "},
+    {time:63.01, caption:" Not to mention a family which is has two men."},
+    {time:64, caption:"If it exists, it has a reason."},
+    {time:65.24, caption:" I don’t discriminate them"},
+    {time:66.25, caption:" But I won’t try to be gay myself. "},
+    {time:69.16, caption:" I can’t stand two men being together. "},
+    {time:73.03, caption:" Two dudes making out? "},
+    {time:76.13, caption:" I don’t think it’s appropriate. "},
+    {time:78.21, caption:" Everyone has his own morals and ethics. "},
+    {time:82.04, caption:" I think it’s his own choice. "},
+  ],[ //subtitle for video2
+    {time:4.3, caption:"Something here what they are saying."},
+    {time:5.1, caption:"Something here what they are saying."},
+    {time:8.3, caption:"Something here what they are saying."},
+    {time:41.4, caption:"Something here what they are saying."}
+  ],[ //subtitle for video3
+    {time:4.3, caption:"Something here what they are saying."},
+    {time:5.1, caption:"Something here what they are saying."},
+    {time:8.3, caption:"Something here what they are saying."},
+    {time:41.4, caption:"Something here what they are saying."}
+  ],[//subtitle for video4
+    {time:4.3, caption:"Something here what they are saying."},
+    {time:5.1, caption:"Something here what they are saying."},
+    {time:8.3, caption:"Something here what they are saying."},
+    {time:41.4, caption:"Something here what they are saying."}
+  ],[//subtitle for video5
+    {time:4.3, caption:"Something here what they are saying."},
+    {time:5.1, caption:"Something here what they are saying."},
+    {time:8.3, caption:"Something here what they are saying."},
+    {time:41.4, caption:"Something here what they are saying."}
+  ],[//subtitle for video6
+    {time:4.3, caption:"Something here what they are saying."},
+    {time:5.1, caption:"Something here what they are saying."},
+    {time:8.3, caption:"Something here what they are saying."},
+    {time:41.4, caption:"Something here what they are saying."}
+  ],
+  ];
+
+
+  var questions = [
+  "What do you think of homosexuality?",
+  "Can two gay men really love each other?",
+  "How is HIV/ AIDS transmitted?",
+  "Is there any relationship between HIV and homosexuality?",
+  "How much does it cost to treat HIV/AIDS?", 
+  "How long can people with HIV live?"
+  ];
+
+$(document).ready(function(){
+ 
+  for (var questionNumber = 1; questionNumber <= 7; questionNumber++) {
+    var registerCall = function(i) {
+      $("#question" + i).on("click", function() {
+        videoClickCallback(i);
+      })
+    };
+    registerCall(questionNumber);    
+  }
+
+ var registerVideoCallOnFinish = function(i){
+      $("#video" + i).on("finish",function(){
+        videoPausedorFinished(i);
+      })
+    };
+
+
+
+  var registerVideoCallOnPlay = function(i){
+    $("#video" + i).on("play",function(data){
+      videoPlayHit(i,data);
+    })
+  };  
+
+  for(var videoNumber = 1; videoNumber <=7; videoNumber++){
+    var registerVideoCall = function(i){
+      $("#video" + i).on("playProgress",function(e,data){
+        videoPlayProgress(i,data);
+      })
+    };
+    registerVideoCall(videoNumber);
+    registerVideoCallOnPlay(videoNumber);
+    registerVideoCallOnFinish(videoNumber);
+}
+
+});
+
+//   for(var videoNumber = 1; videoNumber <=7; videoNumber++){
+//     var registerVideoCall = function(i){
+//       $("#video" + i).hover(function(){
+//         hoverVideo(i);
+//       })
+//     };
+//     registerVideoCall(videoNumber);
+// } 
+
+// function hoverVideo(videoSequenceId){
+//   if(videoSequenceId == 4){
+//     $("#filmstrip").stop().animate({"left":-320}, {queue:false, duration:600});
+// }
+//   else if(videoSequenceId == 5){
+//     $("#filmstrip").stop().animate({"left":-640}, {queue:false, duration:600});
+//   }
+//   else {
+//     $("#filmstrip").stop().animate({"left":0}, {queue:false, duration:600});
+//   }
+// }
+
+function videoPlayProgress(videoSequenceId,data){
+        var currentSubtitle = subtitles_for_video[videoSequenceId-1];
+        for(var i=currentSubtitle.length - 1; i >= 0; i--){
+          if (data.seconds > currentSubtitle[i].time) {
+            $("#subtitles").html(currentSubtitle[i].caption);
+            return;
+          }
+        }
+  };
+
+
+
+function videoClickCallback(videoSequenceId) {
+  if(videoSequenceId == 5){
+    $("#filmstrip").stop().animate({"left":-320}, {queue:false, duration:600});
+  }
+  else if(videoSequenceId == 6){
+    $("#filmstrip").stop().animate({"left":-640}, {queue:false, duration:600});
+  }
+  else {
+    $("#filmstrip").stop().animate({"left":0}, {queue:false, duration:600});
+  }
+    /* Needs vimeo plugin to work */
+    $("#question_title").text(questions[videoSequenceId - 1]);
+    $("#question" + videoSequenceId).css('color','#8F5332');    
+    $(".streetinterview").not("#video" + videoSequenceId).each(function(){
+      $(this).vimeo("pause");
+    });
+    $("#video" + videoSequenceId).vimeo("play");
+    $("#video" + videoSequenceId).addClass( "enlarged");
+}
+
+function videoPausedorFinished(videoSequenceId){
+    $("#video" + videoSequenceId).removeClass( "enlarged");
+  }
+
+function videoPlayHit(videoSequenceId){
+  $(".streetinterview").removeClass("enlarged");
+  $("#video" + videoSequenceId).addClass( "enlarged");
+}
+
+</script>
+<body style="height:10000px;">
+    <div class="container-fluid content">
+        <!--         <div class="row" data-0="opacity:1; transform:translate3d(0px,0px,0px);" data--1000-bottom="transform:translate3d(0px,1000px,0px); opacity:0;"> -->
+        <div class="row" id="header" data-0="opacity:1" data--200-bottom="opacity:0;">
+    
+            <!--  <div class="scroll col-sm-1">
+                    <h5>Scroll</h5>
+                </div> -->
+          <div id="question_title">We asked people on the street to answer the following questions.</div>
+
+          <ul id="keyword">
+                <li id="question1">Homosexuality</li>
+                <li id="question2">HIV</li>
+                <li id="question3">KEYWORD3</li>
+                <li id="question4">KEYWORD4</li>
+                <li id="question5">KEYWORD5</li>
+                <li id="question6">KEYWORD6</li>
+          </ul>
+
+		<div id="filmstrip">
+			
+		    <iframe class="streetinterview" id= "video1" src="https://player.vimeo.com/video/163781314" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <iframe class="streetinterview" id= "video2" src="https://player.vimeo.com/video/163781314" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <iframe class="streetinterview" id= "video3" src="https://player.vimeo.com/video/163781314"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <iframe class="streetinterview" id= "video4" src="https://player.vimeo.com/video/156802238"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <iframe class="streetinterview" id= "video5" src="https://player.vimeo.com/video/156802238"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <iframe class="streetinterview" id= "video6" src="https://player.vimeo.com/video/156802238"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+
+      <div id="subtitles"></div>
+
+</body>
